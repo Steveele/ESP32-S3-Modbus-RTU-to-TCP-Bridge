@@ -15,7 +15,7 @@
 
 constexpr uint8_t PIN_RX    = 17;   // RO → ESP
 constexpr uint8_t PIN_TX    = 18;   // DI ← ESP
-constexpr uint8_t PIN_DE_RE = 5;    // DE+RE
+constexpr uint8_t PIN_DE_RE = 7;    // DE+RE
 
 /*****  Wi‑Fi: Soft‑AP  *****/
 const char AP_SSID[]     = "ModbusLink";   // choose any name
@@ -125,7 +125,7 @@ Serial.println(WiFi.softAPIP());     // should print 192.168.10.1
   tcp.onRaw(cbTcpRaw); // Assign raw data processing callback
   
   Serial1.begin(9600, SERIAL_8N1, PIN_RX, PIN_TX);
-  rtu.begin(&Serial1, 7);   //   <-- direction pin declared!
+  rtu.begin(&Serial1, PIN_DE_RE);   //   <-- direction pin declared!
   rtu.master();
   rtu.onRaw(cbRtuRaw); // Assign raw data processing callback
 }
