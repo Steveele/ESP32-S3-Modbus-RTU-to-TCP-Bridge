@@ -13,8 +13,8 @@
 //SoftwareSerial S(13, 15);
 
 
-constexpr uint8_t PIN_RX    = 17;   // RO → ESP
-constexpr uint8_t PIN_TX    = 18;   // DI ← ESP
+constexpr uint8_t PIN_RX    = 9;   // RO → ESP
+constexpr uint8_t PIN_TX    = 8;   // DI ← ESP
 constexpr uint8_t PIN_DE_RE = 7;    // DE+RE
 
 /*****  Wi‑Fi: Soft‑AP  *****/
