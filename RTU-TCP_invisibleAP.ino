@@ -18,7 +18,7 @@ ModbusTCP tcp;
 
 const char* ssid = "ModbusLink";
 const char* password = "Bridge123";
-constexpr uint8_t pin_de_re = 5;
+constexpr uint8_t pin_de_re = 4;
 
 // ModbusRTU(SlaveID) => ModbusTCP(IP) mapping table
 struct slave_map_t {
@@ -113,7 +113,7 @@ void setup() {
     
   tcp.client(); // Initialize ModbusTCP to pracess as client
   tcp.onRaw(cbTcpRaw); // Assign raw data processing callback
-  Serial2.begin(9600, SERIAL_8N1, 17, 18);
+  Serial2.begin(9600, SERIAL_8N1, 6, 3);
   rtu.begin(&Serial2, pin_de_re);
   rtu.slave(3); // Initialize ModbusRTU as slave
   rtu.onRaw(cbRtuRaw); // Assign raw data processing callback
